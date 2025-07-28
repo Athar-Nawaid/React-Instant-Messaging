@@ -1,0 +1,97 @@
+.screenCont{
+    width: 100%;
+}
+
+.ChatScreenOuterCont{
+    background-color: #272757;
+    /* width: 104%; */
+    height: 69vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.textArea{
+    /* width: 99.1%; */
+    /* display: flex; */
+    background-color: #272757;
+    width: 100%;
+  
+}
+
+.textArea input{
+    margin: 1vw;
+    padding: 1vh;
+    border-radius: 1vw;
+    width: 60vw;
+}
+.sendButton {
+    padding: 0.5vw 1vw ;
+    margin-left:-1vh ;
+    border-radius: 1vw;
+    
+}
+
+
+.head{
+    display: flex;
+    background-color: #06063b;
+    padding: 1vh 0;
+    width: 100%;
+}
+.profileNameCont{
+    color: #8b8bbc;
+    
+}
+
+
+.profilePhotoCont img{
+    width: 2.5vw;
+    height: 2.5vw;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5vw;
+    border-radius: 2.5vw;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+
+.messageUser{
+    display: inline-block;
+    background-color: #8b8bbc;
+    padding: 0.5vh;
+    border-radius: 1vh;
+    margin-bottom: 1vh;
+    align-self: flex-end;
+    margin: 0 1vw;
+}
+
+.messageFrnd{
+    display: inline-block;
+    background-color: #505081;
+    padding: 0.5vh;
+    border-radius: 1vh;
+    margin-bottom: 1vh;
+    align-self: flex-start;
+    margin: 0 1vw;
+}
+
+
+.emptyCont{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #272757;
+}
+.emptyCont img{
+    width: 20%;
+}
+
+.time{
+    font-size: 1.2vh;
+    
+}

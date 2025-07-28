@@ -1,0 +1,47 @@
+.screenCont{
+    display: flex;
+}
+
+.sideBarCont{
+    float: left;
+}
+.listCont{
+    height: 86vh;
+    overflow-y: scroll;
+    background-color: #505081;
+}
+
+.list{
+    width: 29vw;
+    margin: 0 2px 2px 2px;
+    background-color: #8b8bbc;
+    display: flex;
+    cursor: pointer;
+}
+
+.list h3{
+    padding-left: 1vw;
+}
+
+.list p{
+    padding: 0 1vw;
+}
+
+.userCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1vw;
+}
+.userCont img{
+    width: 2vw;
+    height: 2vw;
+    border-radius: 2vw;
+    object-fit: cover;
+}
+
+
+.time{
+    font-size: 1.2vh;
+    
+}
