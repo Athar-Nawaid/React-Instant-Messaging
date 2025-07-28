@@ -45,3 +45,13 @@
     font-size: 1.2vh;
     
 }
+
+.searchCont{
+     background-color: #505081;
+}
+.searchCont input{
+    width: 90%;
+    padding: 1vh;
+    border-radius: 1vw;
+    margin: 1vh 1vw;
+}

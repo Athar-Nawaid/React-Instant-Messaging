@@ -2,7 +2,7 @@ import style from './Sidebar.module.css'
 import user from '../../Logos/user.png'
 import ChatScreen from '../Chat-Screen/ChatScreen'
 import {data} from "../../Json/data.js"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useReducer } from 'react'
 
 let InitalState = data;
@@ -11,11 +11,12 @@ let InitalState = data;
 export default function Sidebar(){
 
     let [INITIAL_STATE,setINITIAL_STATE] = useState(InitalState);
+    let [filteredArr,setFilteredArr] = useState(INITIAL_STATE);
     let [chat,setChat] = useState(null);
+    let [search,setSearch] = useState("");
     console.log(chat);
 
     const sendMessage = (id,message)=>{
-        
         let updated = INITIAL_STATE.map(data=>{
             if(data.id==id){
                 return{
@@ -38,14 +39,23 @@ export default function Sidebar(){
         const updatedChat = updated.find(user => user.id === id);
         setChat(updatedChat);
     }
+    useEffect(()=>{
+        let filteredArr = INITIAL_STATE.filter(data=>data.name.toLowerCase().includes(search.toLowerCase()))
+        setFilteredArr(filteredArr);
+    },[search]);
+
+ 
     
     return(
         < div className={style.screenCont}>
             <div className={style.sideBarCont}>
+                <div className={style.searchCont}>
+                    <input placeholder='Search' onChange={(e)=>setSearch(e.target.value)}/>
+                </div>
 
                 <ul className={style.listCont}>
 
-                    {INITIAL_STATE.map(data=>( 
+                    {filteredArr.map(data=>( 
                         <li className={style.list} onClick={()=>setChat(data)}>
                         <div className={style.userCont}>
                             <img src={data.profilePic.length>3?(data.profilePic):(user)}/>
