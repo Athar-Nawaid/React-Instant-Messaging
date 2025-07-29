@@ -7,7 +7,6 @@ import { useState } from 'react';
 export default function ChatScreen(props){
 
     let {chat,sendMessage} = props;
-    // {console.log(chat)}
     let [text,setText] = useState("");
 
     const handleSend = (id,msg)=>{

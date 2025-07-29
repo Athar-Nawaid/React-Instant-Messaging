@@ -55,3 +55,20 @@
     border-radius: 1vw;
     margin: 1vh 1vw;
 }
+
+.add{
+    position: absolute;
+    top: 78vh;
+    left: 24vw;
+    cursor: pointer;
+}
+.add img{
+    width: 4vw;
+}
+.add :hover{
+    transform: translateY(-5px);
+}
+.add :active{
+    transform: translateY(1px);
+    filter: brightness(50%);
+}

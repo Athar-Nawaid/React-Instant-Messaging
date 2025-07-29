@@ -3,18 +3,18 @@ import user from '../../Logos/user.png'
 import ChatScreen from '../Chat-Screen/ChatScreen'
 import {data} from "../../Json/data.js"
 import { useEffect, useState } from 'react'
-import { useReducer } from 'react'
+import newMessage from "../../Logos/newMessage.png"
 
-let InitalState = data;
+let InitailState = data;
 
 
 export default function Sidebar(){
 
-    let [INITIAL_STATE,setINITIAL_STATE] = useState(InitalState);
+    let [INITIAL_STATE,setINITIAL_STATE] = useState(InitailState);
     let [filteredArr,setFilteredArr] = useState(INITIAL_STATE);
     let [chat,setChat] = useState(null);
     let [search,setSearch] = useState("");
-    console.log(chat);
+    
 
     const sendMessage = (id,message)=>{
         let updated = INITIAL_STATE.map(data=>{
@@ -36,14 +36,20 @@ export default function Sidebar(){
         
 
         setINITIAL_STATE(updated);
+
+        let filteredArr = INITIAL_STATE.filter(data=>data.name.toLowerCase().includes(search.toLowerCase()))
+        setFilteredArr(filteredArr);
+
         const updatedChat = updated.find(user => user.id === id);
         setChat(updatedChat);
+
     }
     useEffect(()=>{
         let filteredArr = INITIAL_STATE.filter(data=>data.name.toLowerCase().includes(search.toLowerCase()))
         setFilteredArr(filteredArr);
-    },[search]);
+    },[INITIAL_STATE,search]);
 
+  
  
     
     return(
@@ -71,6 +77,7 @@ export default function Sidebar(){
                     
                     
                 </ul>
+                <a className={style.add} type='button' ><img src={newMessage}/></a>
             </div>
             <ChatScreen chat={chat} sendMessage={sendMessage}/>
         </div>
