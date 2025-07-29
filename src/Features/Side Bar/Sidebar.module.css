@@ -6,7 +6,7 @@
     float: left;
 }
 .listCont{
-    height: 86vh;
+    height: 80vh;
     overflow-y: scroll;
     background-color: #505081;
 }
@@ -71,4 +71,37 @@
 .add :active{
     transform: translateY(1px);
     filter: brightness(50%);
+}
+
+
+/* **********Modal styling********* */
+
+.modalCont{
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-40%);
+    top: 50%;
+    transform: translateY(-50%);
+    
+}
+.modalHead{
+    background-color: #505081;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+.modalName{
+    padding: 1vh 0;
+}
+.close{
+    position: absolute;
+    right: 1vw;
+    font-size: 1.5vw;
+    cursor: pointer;
+}
+.listContModal{
+    height:40vh;
+    overflow-y: scroll;
+    background-color: #505081;
 }

@@ -14,6 +14,7 @@ export default function Sidebar(){
     let [filteredArr,setFilteredArr] = useState(INITIAL_STATE);
     let [chat,setChat] = useState(null);
     let [search,setSearch] = useState("");
+    let [showList,setShowList] = useState(false)
     
 
     const sendMessage = (id,message)=>{
@@ -77,9 +78,40 @@ export default function Sidebar(){
                     
                     
                 </ul>
-                <a className={style.add} type='button' ><img src={newMessage}/></a>
+                <a className={style.add} type='button'onClick={()=>setShowList(true)} ><img src={newMessage}/></a>
             </div>
+            {showList?<ChatModal initialState ={INITIAL_STATE} setChat={setChat} setShowList={setShowList}/>:<></>}
             <ChatScreen chat={chat} sendMessage={sendMessage}/>
+        </div>
+    )
+}
+
+function ChatModal(props){
+    const {initialState,setChat,setShowList} = props;
+    const handleClick = (data)=>{
+        setChat(data);
+        setShowList(false);
+    }
+    return(
+        <div className={style.modalCont}>
+            <div className={style.modalHead}><h1 className={style.modalHeadTitle}>New Chat</h1><h3 className={style.close} onClick={()=>setShowList(false)}>x</h3></div>
+            <div>
+                <ul className={style.listContModal}>
+
+                    {initialState.map(data=>( 
+                        <li className={style.list} onClick={()=>handleClick(data)}>
+                        <div className={style.userCont}>
+                            <img src={data.profilePic.length>3?(data.profilePic):(user)}/>
+                        </div>
+                        <div>
+                            <h3 className={style.modalName}>{data.name}</h3>
+                        </div>
+                    </li>
+                    ))}
+                    
+                    
+                </ul>
+            </div>
         </div>
     )
 }
