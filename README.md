@@ -1,4 +1,5 @@
-💬 React Chat App
+💬 React Chat App                                                             
+
 A simple, clean, and modular React-based Chat Application with searchable user list, new chat creation, and real-time message update (local state). Built using React Hooks, CSS Modules, and modular components.
 
 🚀 Features
